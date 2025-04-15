@@ -16,6 +16,15 @@ class UserController extends Controller
         return view('users.index', compact('users'));
     }
 
+    /** 
+      *Create user
+      */
+    public function create(Request $request)
+    {
+        User::created($request);
+        return view('users.create');
+    }
+
     /**
      * Store a newly created resource in storage.
      */
