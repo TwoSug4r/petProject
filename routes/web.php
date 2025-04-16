@@ -11,7 +11,9 @@ Route::get('/', function(){
 });
 
 //users
-Route::resource('users', UserController::class);
+Route::middleware('auth')->group(function(){
+    Route::resource('users', UserController::class);
+});
 
 //profile
 Route::middleware('auth')->group(function () {

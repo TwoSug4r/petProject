@@ -50,9 +50,23 @@
             font-size: 1rem;
             transition: background-color 0.3s, transform 0.2s;
         }
+        
+        .reg-btn {
+            top: 20px;
+            right: 20px;
+            display: inline-block;
+            text-decoration: none;
+            color: white;
+            background-color: #dc3545;
+            padding: 8px 18px;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: background-color 0.3s, transform 0.2s;
+        }
 
         .button {
-            top: 20px;
+            position: fixed;
+            top: 70px;
             right: 20px;
             display: inline-block;
             text-decoration: none;
@@ -105,7 +119,8 @@
     </style>
 </head>
 <body>
-    <a class="welcome-btn" href="/">welcome</a>
+    <a class="button" href="/login">Log In</a>
+    <a class="welcome-btn" href="/">Welcome</a>
     <div class="container">
         <h1>Регистрация</h1>
         <form method="post" action="{{ route('register') }}">
@@ -135,7 +150,7 @@
                 <label for="password_confirmation">Password confirm</label>
                 <input type="password" id="password_confirmation" name="password_confirmation" placeholder="Повторите пароль" required>
             </div>
-            <button class="button" type="submit">Registration</button>
+            <button class="reg-btn" type="submit">Registration</button>
         </form>
     </div>
 </body>
