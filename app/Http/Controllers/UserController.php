@@ -18,14 +18,6 @@ class UserController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        return view('users.create');
-    }
-
-    /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
@@ -42,7 +34,7 @@ class UserController extends Controller
             'password' => bcrypt($validated['password']),
         ]);
 
-        return redirect()->route('users.index')->with('success', 'Пользователь создан');
+        return redirect()->route('users.store')->with('success', 'Пользователь создан');
     }
 
     /**

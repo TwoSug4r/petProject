@@ -3,14 +3,11 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Middleware\AdminRoleMiddleware;
 
 Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
-
-// Route::get('/', function () {
-//     return view('welcome');
-// })->middleware(['auth', 'verified'])->name('welcome');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -18,7 +15,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::middleware('AdminRoleMiddleware')->group(function () {
+Route::middleware(AdminRoleMiddleware::class)->group(function () {
     Route::resource('/users', UserController::class);
 });
 
